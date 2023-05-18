@@ -5,7 +5,7 @@ import { handleHttpError, HttpError } from "../models/helper/HttpError";
 
 export function fetchPlaylists(): Promise<Playlist[]> {
     return fetch(
-        "http://localhost:8080/api/playlists",
+        "https://api.btr.mxgi.io/api/playlists",
         {
             headers: { Authorization: 'Bearer ' + getSession() }
         },

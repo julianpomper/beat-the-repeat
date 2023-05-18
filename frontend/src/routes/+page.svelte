@@ -31,7 +31,7 @@
                     <img alt="Spotify logo"
                          class="w-6 h-6"
                          src={spotify}>
-                    <a href="http://localhost:8080"
+                    <a href="https://api.btr.mxgi.io"
                        class="text-sm font-bold text-gray-900 shadow-sm">
                         GET STARTED
                     </a>

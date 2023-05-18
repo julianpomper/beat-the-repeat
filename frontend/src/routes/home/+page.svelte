@@ -42,7 +42,7 @@
             </svg>
             {#if $userStore !== undefined}
                 <div class="max-w-md flex flex-col items-start">
-                    <img alt="Profile image" src={$userStore.imageUrl}
+                    <img alt="Profile" src={$userStore.imageUrl}
                          class="aspect-square self-center h-36 rounded-full border-2 border-white">
                     <h2 class="mt-10 text-4xl font-bold text-white leading-6">
                         <span class="text-lg font-normal text-gray-300">Hello</span><br>{$userStore.name}
