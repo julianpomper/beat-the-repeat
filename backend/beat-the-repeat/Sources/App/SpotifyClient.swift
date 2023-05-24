@@ -184,7 +184,7 @@ extension SpotifyClient {
                         logout(auth: auth)
 
                         response.headers.setCookie = HTTPCookies()
-                        response.headers.setCookie?.all["token"] = .init(string: "", expires: .distantPast)
+                        response.headers.setCookie?.all["token"] = .init(string: "", expires: .distantPast, domain: Environment.get("BTR_HOST")!, isSecure: true)
                     }
                     throw error
                 }
@@ -202,7 +202,7 @@ extension SpotifyClient {
                 if response.status == .unauthorized {
                     logout(auth: auth)
                     response.headers.setCookie = HTTPCookies()
-                    response.headers.setCookie?.all["token"] = .init(string: "", expires: .distantPast)
+                    response.headers.setCookie?.all["token"] = .init(string: "", expires: .distantPast, domain: Environment.get("BTR_HOST")!, isSecure: true)
                 }
                 throw Abort(response.status)
             }

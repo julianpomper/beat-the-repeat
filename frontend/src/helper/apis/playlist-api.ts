@@ -1,11 +1,12 @@
-import { deleteSession, getSession } from "../cookie";
+import { getSession } from "../cookie";
 import { Playlist, PlaylistDto } from "../models/playlist";
 import { playlistsStore } from "../stores/store";
 import { handleHttpError, HttpError } from "../models/helper/HttpError";
+import { API_URL } from "../constants";
 
 export function fetchPlaylists(): Promise<Playlist[]> {
     return fetch(
-        "https://api.btr.mxgi.io/api/playlists",
+        API_URL + "/playlists",
         {
             headers: { Authorization: 'Bearer ' + getSession() }
         },

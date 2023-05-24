@@ -9,7 +9,9 @@ import Vapor
 
 struct CallbackController: RouteCollection {
     func boot(routes: RoutesBuilder) throws {
-        routes.grouped("callback").get(use: index)
+        routes.group("callback") { callback in
+            callback.get(use: index)
+        }
     }
     
     func index(req: Request) async throws -> Response {
@@ -19,10 +21,10 @@ struct CallbackController: RouteCollection {
             body: TokenRequestBody(code: queryParams.code),
             application: req.application
         )
-
+        
         let response = req.redirect(to: "\(Environment.get("BTR_FRONTEND_DOMAIN")!)/home")
-        response.cookies.all["token"] = .init(string: token, domain: Environment.get("BTR_FRONTEND_DOMAIN")!, isSecure: true)
-
+        response.cookies.all["token"] = .init(string: token, domain: Environment.get("BTR_HOST")!, isSecure: true)
+        
         return response
     }
 }
@@ -33,7 +35,7 @@ struct UserProfileData: Content {
         let height: Int?
         let width: Int?
     }
-
+    
     let displayName: String
     let href: String
     let id: String

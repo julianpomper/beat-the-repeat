@@ -2,10 +2,11 @@ import { userStore } from "../stores/store";
 import { getSession } from "../cookie";
 import { User, UserDto } from "../models/user";
 import { handleHttpError, HttpError } from "../models/helper/HttpError";
+import { API_URL } from "../constants";
 
 export function fetchUser(): Promise<User> {
     return fetch(
-        "https://api.btr.mxgi.io/api/me",
+        API_URL + "/me",
         {
             headers: { Authorization: 'Bearer ' + getSession() }
         },
@@ -32,7 +33,7 @@ export function fetchUser(): Promise<User> {
 
 export function updateUser(active: boolean, playlistId: string) {
     fetch(
-        "https://api.btr.mxgi.io/api/me",
+        API_URL + "/me",
         {
             method: "PUT",
             headers: {

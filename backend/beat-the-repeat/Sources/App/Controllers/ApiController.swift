@@ -9,14 +9,12 @@ import Vapor
 
 struct ApiController: RouteCollection {
     func boot(routes: RoutesBuilder) throws {
-        let api = routes.grouped("api")
-
-        api.group("me") { me in
+        routes.group("me") { me in
             me.get(use: getCurrentUser)
             me.put(use: updateCurrentUser)
         }
 
-        api.group("playlists") { playlists in
+        routes.group("playlists") { playlists in
             playlists.get(use: getPlaylists)
         }
     }
