@@ -3,6 +3,7 @@
     import { fetchPlaylists } from "../../helper/apis/playlist-api.ts";
     import { playlistsStore, userStore } from "../../helper/stores/store.ts";
     import { fetchUser, updateUser } from "../../helper/apis/user-api.ts";
+    import Button from '$lib/components/Button.svelte';
 
     export let isActive: boolean = false;
     export let selectedPlaylistId: string | undefined = undefined;
@@ -39,7 +40,7 @@
             playlist!
             <br>
         </p>
-        <div class="h-0.5 w-[200%] bg-gray-700 my-6 -mx-32"></div>
+        <div class="shrink-0 h-[2px] w-[200%] bg-gray-700 opacity-60 mt-6 mb-10 -mx-32"></div>
         <label for="playlists" class="block mb-1 text-sm font-medium text-gray-300">
             Active Beat the Repeat
         </label>
@@ -61,8 +62,18 @@
                 <option value={playlist.id}>{playlist.name}</option>
             {/each}
         </select>
-        <small class="absolute bottom-4 left-1/2 -translate-x-1/2 text-center text-white opacity-40">Attention: The
-            played songs of the selected playlist will be deleted!</small>
+        <small class="mt-2 text-white opacity-40">
+            Attention: The played songs of the selected playlist will be deleted!
+        </small>
+        <div class="shrink-0 h-[2px] w-[200%] bg-gray-700 opacity-60 my-10 -mx-32"></div>
+        <label for="playlists" class="block mb-1 text-sm font-medium text-gray-300">
+            Now NEW! Try out Beat the Mix!
+        </label>
+        <Button>
+            <a class='text-sm font-bold text-gray-900 shadow-sm' href='/mix'>
+                Start the Mix!
+            </a>
+        </Button>
     {:else}
         <div class="text-xl font-semibold">Loading</div>
     {/if}

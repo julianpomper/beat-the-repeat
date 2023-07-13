@@ -1,6 +1,6 @@
-import { writable, Writable } from 'svelte/store';
-import { User } from "../models/user";
-import { Playlist } from "../models/playlist";
+import { writable, type Writable } from 'svelte/store';
+import type { User } from '../models/user';
+import type { Playlist } from '../models/playlist';
 
 export const userStore: Writable<User | undefined> = writable(undefined);
 export const playlistsStore: Writable<Playlist[]> = writable([]);

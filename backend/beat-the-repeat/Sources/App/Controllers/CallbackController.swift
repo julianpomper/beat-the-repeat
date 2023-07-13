@@ -53,7 +53,7 @@ struct UserProfileData: Content {
     }
     
     var imageUrl: String {
-        return images.first?.url ?? ""
+        return images.last?.url ?? ""
     }
 }
 

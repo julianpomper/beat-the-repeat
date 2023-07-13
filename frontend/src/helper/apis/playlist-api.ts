@@ -1,12 +1,12 @@
 import { getSession } from "../cookie";
-import { Playlist, PlaylistDto } from "../models/playlist";
+import { Playlist, type PlaylistDto } from "../models/playlist";
 import { playlistsStore } from "../stores/store";
 import { handleHttpError, HttpError } from "../models/helper/HttpError";
 import { API_URL } from "../constants";
 
 export function fetchPlaylists(): Promise<Playlist[]> {
     return fetch(
-        API_URL + "/playlists",
+        API_URL() + "/playlists",
         {
             headers: { Authorization: 'Bearer ' + getSession() }
         },

@@ -1,10 +1,10 @@
 export class User {
     constructor(
-        public readonly id: number,
-        public readonly name: string,
-        public readonly imageUrl?: string,
-        public readonly isActive: boolean,
-        public readonly activePlaylistId?: string,
+      public readonly id: number,
+      public readonly name: string,
+      public readonly isActive: boolean,
+      public readonly imageUrl?: string,
+      public readonly activePlaylistId?: string,
     ) {
     }
 }
