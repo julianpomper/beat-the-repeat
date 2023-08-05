@@ -453,7 +453,7 @@
     }
   ],
   "background_color": "#111827",
-  "display": "fullscreen",
+  "display": "standalone",
   "scope": "/",
   "theme_color": "#111827",
   "description": "Finally beat the repeat with BTR!"
