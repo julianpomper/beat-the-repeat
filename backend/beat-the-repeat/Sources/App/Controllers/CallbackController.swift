@@ -23,7 +23,7 @@ struct CallbackController: RouteCollection {
         )
         
         let response = req.redirect(to: "\(Environment.get("BTR_FRONTEND_DOMAIN")!)/home")
-        response.cookies.all["token"] = .init(string: token, domain: Environment.get("BTR_HOST")!, isSecure: true)
+        response.cookies.all["token"] = .init(string: token, expires: .distantFuture, domain: Environment.get("BTR_HOST")!, isSecure: true)
         
         return response
     }
